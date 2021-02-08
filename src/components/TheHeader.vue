@@ -2,7 +2,7 @@
   <header>
     <h2 class="sr-only">Site Header Information</h2>
     <div class="relative bg-white mb-10">
-      <div class="container max-w-7xl mx-auto px-4 sm:px-6 h-20">
+      <div class="container">
         <div class="flex justify-between items-center border-b-2 border-gray-100 py-8 md:justify-start md:space-x-10">
           <!-- Logo and wordmark -->
           <div class="flex justify-start lg:w-0 lg:flex-1">
