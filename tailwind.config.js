@@ -16,7 +16,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        'brand-primary' : '#18300B',
+        'brand-green': {
+          50: '#F8FBFA',
+          100: '#EBF2F0',
+          200: '#DDEAE7',
+          300: '#E4EEEB',
+          400: '#D6E5E2',
+          500: '#C9DDD8',
+          600: '#BBD4CE',
+          700: '#A8BFB9',
+          800: '#96AAA5',
+          900: '#707F7C',
+        },
         // The following colours deviate from the tailwind default
         gray: colors.warmGray,
         green: colors.emerald,
