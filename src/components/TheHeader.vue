@@ -111,14 +111,20 @@
 
 <script>
 import { ref } from "vue";
+import { enableScrollLock , disableScrollLock } from "./../composables/scroll-lock";
 
 export default {
   setup() {
     const isOpen = ref(false);
 
     function toggleMenu() {
+
       // Toggle the menu status
       isOpen.value = !isOpen.value;
+
+      // Set scroll state
+      isOpen.value ? enableScrollLock() : disableScrollLock();
+
     }
 
     return {
