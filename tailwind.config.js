@@ -26,7 +26,7 @@ module.exports = {
           600: '#BBD4CE',
           700: '#A8BFB9',
           800: '#96AAA5',
-          900: '#707F7C',
+          900: '#5E6A67',
         },
         // The following colours deviate from the tailwind default
         gray: colors.warmGray,
