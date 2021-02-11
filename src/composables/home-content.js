@@ -66,6 +66,9 @@ export default function useHomeContent() {
     }
   }
 
-  return { ...toRefs(state), load };
+  return {
+    ...toRefs(state),
+    load,
+  };
 
 }

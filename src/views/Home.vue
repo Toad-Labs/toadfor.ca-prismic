@@ -19,6 +19,12 @@
           <home-hero :section="section"></home-hero>
         </template>
 
+        <!-- Home Hero section component -->
+        <template v-if="section.type === 'blog_articles'">
+          <!-- Here :slice="slice" passes the data to the component -->
+          <home-blog-articles v-bind="section"></home-blog-articles>
+        </template>
+
       </section>
 
     </div>
@@ -29,6 +35,7 @@
 <script>
 import useHomeContent from './../composables/home-content';
 import HomeHero from '../components/HomeHero.vue';
+import HomeBlogArticles from '../components/HomeBlogArticles.vue';
 
 export default {
   setup() {
@@ -46,7 +53,8 @@ export default {
 
   },
   components: {
-    HomeHero
+    HomeHero,
+    HomeBlogArticles,
   }
 }
 </script>
