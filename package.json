@@ -8,15 +8,15 @@
   },
   "dependencies": {
     "@prismicio/client": "^4.0.0",
-    "prismic-dom": "^2.2.4",
+    "prismic-dom": "^2.2.5",
     "vue": "^3.0.5",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.1.2",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.4",
     "tailwindcss": "^2.0.3",
-    "vite": "^2.0.0-beta.69"
+    "vite": "^2.0.1"
   }
 }
