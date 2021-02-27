@@ -35,7 +35,7 @@
             <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Project
             </a>
-            <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+            <a href="/blog" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Blog
             </a>
             <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
@@ -91,7 +91,7 @@
             <nav class="">
               <ul class="uppercase font-light text-4xl space-y-10 ml-14">
                 <li>
-                  <a href="#" class="">Blog</a>
+                  <a href="/blog" class="">Blog</a>
                 </li>
                 <li>
                   <a href="#" class="">Team</a>
