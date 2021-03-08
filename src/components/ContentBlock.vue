@@ -17,7 +17,16 @@
 
 
       <!-- Blog Post Content Blocks -->
+      <template v-if="contentBlock.type === 'blogImage'">
+          <!-- Here :slice="slice" passes the data to the component -->
+          <blog-post-image-content-block :block="contentBlock"></blog-post-image-content-block>
+      </template>
 
+      <!-- Blog Post Content Blocks -->
+      <template v-if="contentBlock.type === 'blogQuote'">
+          <!-- Here :slice="slice" passes the data to the component -->
+          <blog-post-quote-content-block :block="contentBlock"></blog-post-quote-content-block>
+      </template>
 
 
 
@@ -47,15 +56,24 @@
 </template>
 
 <script>
-// Imports for all content blocks
+// Imports for generic content blocks
 import RichTextContentBlock from "../components/content-blocks/RichTextContentBlock.vue";
+
+// Imports for Blog content blocks
+import BlogPostImageContentBlock from "../components/content-blocks/BlogPostImageContentBlock.vue";
+import BlogPostQuoteContentBlock from "../components/content-blocks/BlogPostQuoteContentBlock.vue";
+
+// Imports for Home page content blocks
 import HomeHeroContentBlock from "../components/content-blocks/HomeHeroContentBlock.vue";
 import HomeBlogPostsContentBlock from "../components/content-blocks/HomeBlogPostsContentBlock.vue";
+
 
 export default {
   props: ['blocks'],
   components: {
     RichTextContentBlock,
+    BlogPostImageContentBlock,
+    BlogPostQuoteContentBlock,
     HomeHeroContentBlock,
     HomeBlogPostsContentBlock,
   },

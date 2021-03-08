@@ -3,6 +3,8 @@ import PrismicDOM from 'prismic-dom';
 import { apiEndpoint } from './api';
 import { BlogPost } from '../../models/blog-post';
 import { RichTextContentBlock } from '../../models/content-blocks/richtext';
+import { BlogPostImageContentBlock } from '../../models/content-blocks/blog-post-image';
+import { BlogPostQuoteContentBlock } from '../../models/content-blocks/blog-post-quote';
 
 /*
  * Function that returns a BlogPost object
@@ -45,13 +47,38 @@ function getBlogPostDataById(uid, successCallback, errorCallback) {
         // First create an array of content blocks
         response.results[0].data.body.forEach(element => {
 
+          console.log('Element', element);
+
           // Rich text content type
+          // TODO: have the type default assigned
           if (element.slice_type === "richtext") {
             const richTextContentBlock = new RichTextContentBlock({
               type : element.slice_type,
               contentHTML : PrismicDOM.RichText.asHtml(element.primary.text),
             })
             contentBlocks.push(richTextContentBlock);
+          }
+
+          // Rich text content type
+          if (element.slice_type === "image") {
+            const blogPostImageContentBlock = new BlogPostImageContentBlock({
+              image : {
+                src : element.primary.img.medium.url,
+                alt : element.primary.img.medium.alt,
+              }
+            })
+            contentBlocks.push(blogPostImageContentBlock);
+          }
+
+          // Rich text content type
+          if (element.slice_type === "quote") {
+            const blogPostQuoteContentBlock = new BlogPostQuoteContentBlock({
+              quote : {
+                text : PrismicDOM.RichText.asText(element.primary.quote),
+                author : PrismicDOM.RichText.asText(element.primary.name_of_the_author),
+              }
+            })
+            contentBlocks.push(blogPostQuoteContentBlock);
           }
 
         });
