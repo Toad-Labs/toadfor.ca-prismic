@@ -2,3 +2,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+
+
+  /* Headings */
+
+  .base-content h1 {
+    @apply my-3 text-4xl font-bold;
+  }
+
+  .base-content h2 {
+    @apply my-4 text-3xl font-semibold;
+  }
+
+  .base-content h3 {
+    @apply my-5 text-2xl font-semibold;
+  }
+
+  .base-content h4 {
+    @apply my-6 text-xl font-semibold;
+  }
+
+  .base-content h5 {
+    @apply my-8 text-lg font-medium;
+  }
+
+  .base-content h6 {
+    @apply my-10 text-base font-medium;
+  }
+
+  /* Paragraphs */
+  .base-content p {
+    @apply my-8 w-4/5 text-lg;
+  }
+
+  /* Anchors */
+  .base-content a {
+    @apply text-brand-green-900 underline;
+  }
+
+  .base-content a:hover {
+    @apply text-green-700;
+  }
+
+
+  /* Lists */
+  .base-content ul {
+    @apply my-8 w-4/5 text-lg list-inside list-disc;
+  }
+
+  .base-content ol {
+    @apply my-8 w-4/5 text-lg list-inside list-decimal;
+  }
+
+}

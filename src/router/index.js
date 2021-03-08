@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
-import Page from '../views/Page.vue';
 
+const BlogLandingPage = () => import('../views/BlogLandingPage.vue');
+const BlogPostPage = () => import('../views/BlogPostPage.vue');
+const ContentPage = () => import('../views/ContentPage.vue');
 const NotFound = () => import('../views/NotFound.vue');
 
 export const router = createRouter({
@@ -12,9 +14,19 @@ export const router = createRouter({
       component: HomePage,
     },
     {
+      path: '/blog',
+      name: 'blog-posts',
+      component: BlogLandingPage
+    },
+    {
+      path: '/blog/:uid',
+      name: 'blog-post',
+      component: BlogPostPage
+    },
+    {
       path: '/page/:uid',
       name: 'page',
-      component: Page
+      component: ContentPage
     },
     {
       path: '/404',

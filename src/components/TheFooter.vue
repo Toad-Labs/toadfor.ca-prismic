@@ -8,7 +8,7 @@
 
         <!-- Date notice -->
         <div class="text-sm">
-          © 2020 Team Toad
+          © 2021 Team Toad
         </div>
 
         <!-- Github Link -->
