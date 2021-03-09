@@ -30,18 +30,8 @@
       <!-- Content Blocks -->
       <content-block :blocks="blogPost.contentBlocks" />
 
-      <div class=" bg-red-200">
-        {{ blogPost }}
-      </div>
     </div>
 
-
-<!--
-    <p>{{ error }}</p>
-
-    <p>{{ slices }}</p>
-
-    <p>{{ documentId }}</p>-->
   </div>
 </template>
 
