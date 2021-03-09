@@ -4,7 +4,7 @@
   <div
     v-if="block && block.embed.html !== null"
     v-html="block.embed.html"
-    class="w-full blog-embed-element">
+    class="blog-embed-element relative h-0" style="padding-top: 56.25%">
 
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
         el.removeAttribute('width');
 
         // Add the width and height classes
-        el.classList.add('w-full', 'h-96');
+        el.classList.add('w-full', 'absolute', 'inset-0', 'h-full');
       }
 
     })
