@@ -13,7 +13,7 @@
     <!-- Loaded state -->
     <div v-else-if="loading === false">
 
-      <div class="container w-2/3 ">
+      <div class="container w-2/3">
 
       <h1 class="mt-20 text-6xl text-brand-green-900 font-semibold text-center">{{ landingPage.title }}</h1>
 
@@ -23,18 +23,14 @@
 
       </div>
 
-      <div class="container">
       <!-- Cover Image -->
-
       <div
         v-if="landingPage.coverImage.src !== null"
-        class=" text-center">
+        class="container xl:w-4/5">
         <img
-            class="shadow-xl my-10 object-cover h-96 w-full"
+            class="shadow-xl my-10 object-cover h-96 w-full bg-red-500"
             :src="landingPage.coverImage.src"
             :alt="landingPage.coverImage.alt" />
-      </div>
-
       </div>
 
       <div class="container w-2/3 ">
