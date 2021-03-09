@@ -96,6 +96,10 @@ function getLandingPageDataByUid(uid, successCallback, errorCallback) {
           uid : response.results[0].uid,
           title : PrismicDOM.RichText.asText(response.results[0].data.title),
           brief : PrismicDOM.RichText.asText(response.results[0].data.brief),
+          coverImage : {
+            src : response.results[0].data.cover_image.url,
+            alt : response.results[0].data.cover_image.alt,
+          },
           contentBlocks,
         })
 

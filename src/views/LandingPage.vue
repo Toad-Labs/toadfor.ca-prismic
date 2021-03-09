@@ -1,5 +1,5 @@
 <template>
-  <div class="container w-2/3 ">
+
 
     <!-- Error state -->
     <div v-if="error">
@@ -12,16 +12,37 @@
     </div>
     <!-- Loaded state -->
     <div v-else-if="loading === false">
+
+      <div class="container w-2/3 ">
+
       <h1 class="mt-20 text-6xl text-brand-green-900 font-semibold text-center">{{ landingPage.title }}</h1>
 
       <p
         v-if="landingPage.brief && landingPage.brief.length >= 0"
         class="py-10 w-1/2 mx-auto text-2xl text-brand-green-800 text-center ">{{ landingPage.brief }}</p>
 
+      </div>
+
+      <div class="container">
+      <!-- Cover Image -->
+
+      <div
+        v-if="landingPage.coverImage.src !== null"
+        class=" text-center">
+        <img
+            class="shadow-xl my-10 object-cover h-96 w-full"
+            :src="landingPage.coverImage.src"
+            :alt="landingPage.coverImage.alt" />
+      </div>
+
+      </div>
+
+      <div class="container w-2/3 ">
       <!-- Content Blocks -->
       <content-block :blocks="landingPage.contentBlocks" />
 
-    </div>
+      </div>
+
   </div>
 </template>
 
@@ -67,6 +88,9 @@ function usePrismicLandingPageContent() {
   getLandingPageDataByUid(
     state.uid,
       (data) => {
+
+        console.log('Landing Page Component data:', data);
+
         state.found = data.found;
         state.error = data.error;
         state.landingPage = data.landingPage;

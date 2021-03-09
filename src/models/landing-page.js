@@ -6,6 +6,11 @@ export class LandingPage {
   title = '';
   brief = '';
 
+  coverImage = {
+    src: null,
+    alt: null,
+  }
+
   contentBlocks = [];
 
   error = null;
@@ -17,6 +22,10 @@ export class LandingPage {
     // Assign the title and brief text
     this.title = data.title || '';
     this.brief = data.brief || '';
+
+    // Assign the cover image
+    this.coverImage.src = data.coverImage?.src || null;
+    this.coverImage.alt = data.coverImage?.alt || null;
 
     // Assign the content blocks
     if (Array.isArray(data.contentBlocks)) {
