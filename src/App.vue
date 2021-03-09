@@ -8,12 +8,10 @@
     <the-header />
 
     <!-- Page content -->
-    <div class="w-full mx-auto container p-5">
-      <main>
-        <!-- Force a reload of the component on router path change using the key attribute -->
-        <router-view :key="$route.fullPath" />
-      </main>
-    </div>
+    <main>
+      <!-- Force a reload of the component on router path change using the key attribute -->
+      <router-view :key="$route.fullPath" />
+    </main>
 
     <!-- The footer component -->
     <the-footer />
