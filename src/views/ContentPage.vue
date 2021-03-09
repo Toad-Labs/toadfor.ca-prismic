@@ -20,16 +20,13 @@ import Prismic from '@prismicio/client';
 export default {
   setup() {
 
-    // If there is an error push it to the not found page
+    // Check that the page exists and then display content
+    // or redirect if there is an error
+    const { uid } = usePrismicPageContent();
 
-
-    // Check if the uid exists
-    // If not send to Not Found
-    //const { fetchPageContent } = usePrismicPageContent();
-
-    //const { error, slices, documentId } = fetchPageContent(id.value);
-
-    return usePrismicPageContent();
+    return {
+      uid
+    };
   },
 }
 function usePrismicPageContent() {
@@ -47,6 +44,9 @@ function usePrismicPageContent() {
 
   // Get the current page parameter
   state.uid = useRoute().params.uid;
+
+
+
 
   // Check if the uid is a valid page from prismic
   Prismic.client(prismicApiEndpoint).query([

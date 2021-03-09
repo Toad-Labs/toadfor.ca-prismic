@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue';
 
 const BlogLandingPage = () => import('../views/BlogLandingPage.vue');
 const BlogPostPage = () => import('../views/BlogPostPage.vue');
+const LandingPage = () => import('../views/LandingPage.vue');
 const ContentPage = () => import('../views/ContentPage.vue');
 const NotFound = () => import('../views/NotFound.vue');
 
@@ -24,8 +25,13 @@ export const router = createRouter({
       component: BlogPostPage
     },
     {
+      path: '/landing/:uid',
+      name: 'landing-page',
+      component: LandingPage
+    },
+    {
       path: '/page/:uid',
-      name: 'page',
+      name: 'content-page',
       component: ContentPage
     },
     {

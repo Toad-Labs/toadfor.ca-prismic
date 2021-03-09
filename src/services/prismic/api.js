@@ -1,6 +1,7 @@
 import { getBlogPostDataById } from './blog-post';
 import { getBlogTeaserData, getBlogTeaserDataByIds } from './blog-teaser';
 import { getHomeContentData } from './home-content';
+import { getLandingPageDataByUid } from './landing-page';
 
 // Default config options
 const baseDomain = 'https://toadforca.cdn.prismic.io';
@@ -13,6 +14,7 @@ export {
   getBlogTeaserData,
   getBlogTeaserDataByIds,
   getHomeContentData,
+  getLandingPageDataByUid,
 };
 
 
