@@ -2,6 +2,7 @@ import Prismic from '@prismicio/client';
 import PrismicDOM from 'prismic-dom';
 import { apiEndpoint } from './api';
 import { LandingPage } from '../../models/landing-page';
+import { RichTextContentBlock } from '../../models/content-blocks/richtext';
 
 /*
  * Function that returns a BlogPost object
@@ -56,6 +57,7 @@ function getLandingPageDataByUid(uid, successCallback, errorCallback) {
             contentBlocks.push(richTextContentBlock);
           }
 
+          /*
           // Rich text content type
           if (element.slice_type === "image") {
             const blogPostImageContentBlock = new BlogPostImageContentBlock({
@@ -87,6 +89,7 @@ function getLandingPageDataByUid(uid, successCallback, errorCallback) {
             })
             contentBlocks.push(blogPostEmbedContentBlock);
           }
+          */
 
         });
 

@@ -28,12 +28,12 @@
         v-if="landingPage.coverImage.src !== null"
         class="container xl:w-4/5">
         <img
-            class="shadow-xl my-10 object-cover h-96 w-full bg-red-500"
+            class="shadow-xl my-10 object-cover h-96 w-full"
             :src="landingPage.coverImage.src"
             :alt="landingPage.coverImage.alt" />
       </div>
 
-      <div class="container w-2/3 ">
+      <div class="container w-2/3">
       <!-- Content Blocks -->
       <content-block :blocks="landingPage.contentBlocks" />
 
