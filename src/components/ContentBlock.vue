@@ -28,7 +28,11 @@
           <blog-post-quote-content-block :block="contentBlock"></blog-post-quote-content-block>
       </template>
 
-
+       <!-- Blog Post Content Blocks -->
+      <template v-if="contentBlock.type === 'blogEmbed'">
+          <!-- Here :slice="slice" passes the data to the component -->
+          <blog-post-embed-content-block :block="contentBlock"></blog-post-embed-content-block>
+      </template>
 
       <!-- End Blog Post Content Blocks -->
 
@@ -60,6 +64,7 @@
 import RichTextContentBlock from "../components/content-blocks/RichTextContentBlock.vue";
 
 // Imports for Blog content blocks
+import BlogPostEmbedContentBlock from "../components/content-blocks/BlogPostEmbedContentBlock.vue";
 import BlogPostImageContentBlock from "../components/content-blocks/BlogPostImageContentBlock.vue";
 import BlogPostQuoteContentBlock from "../components/content-blocks/BlogPostQuoteContentBlock.vue";
 
@@ -72,6 +77,7 @@ export default {
   props: ['blocks'],
   components: {
     RichTextContentBlock,
+    BlogPostEmbedContentBlock,
     BlogPostImageContentBlock,
     BlogPostQuoteContentBlock,
     HomeHeroContentBlock,

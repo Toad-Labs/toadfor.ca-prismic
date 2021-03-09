@@ -3,6 +3,7 @@ import PrismicDOM from 'prismic-dom';
 import { apiEndpoint } from './api';
 import { BlogPost } from '../../models/blog-post';
 import { RichTextContentBlock } from '../../models/content-blocks/richtext';
+import { BlogPostEmbedContentBlock } from '../../models/content-blocks/blog-post-embed';
 import { BlogPostImageContentBlock } from '../../models/content-blocks/blog-post-image';
 import { BlogPostQuoteContentBlock } from '../../models/content-blocks/blog-post-quote';
 
@@ -47,8 +48,6 @@ function getBlogPostDataById(uid, successCallback, errorCallback) {
         // First create an array of content blocks
         response.results[0].data.body.forEach(element => {
 
-          console.log('Element', element);
-
           // Rich text content type
           // TODO: have the type default assigned
           if (element.slice_type === "richtext") {
@@ -79,6 +78,16 @@ function getBlogPostDataById(uid, successCallback, errorCallback) {
               }
             })
             contentBlocks.push(blogPostQuoteContentBlock);
+          }
+
+          // Rich text content type
+          if (element.slice_type === "embed") {
+            const blogPostEmbedContentBlock = new BlogPostEmbedContentBlock({
+              embed : {
+                html : element.primary.embed.html
+              }
+            })
+            contentBlocks.push(blogPostEmbedContentBlock);
           }
 
         });
