@@ -1,15 +1,27 @@
 <template>
-  <div>
-    <h1>Page template</h1>
+  <div class="container w-2/3 ">
 
-    <p>{{ uid }}</p>
+    <!-- Error state -->
+    <div v-if="error">
+      <p class="text-red-600 text-lg">An error has occured...</p>
+      <p class="text-red-600">{{ error }}</p>
+    </div>
+    <!-- Loading state -->
+    <div v-else-if="loading === true">
+      <p class=" text-brand-green-900 text-lg">Loading...</p>
+    </div>
+    <!-- Loaded state -->
+    <div v-else-if="loading === false">
+      <h1 class="mt-20 text-6xl text-brand-green-900 font-semibold text-center">{{ landingPage.title }}</h1>
 
-<!--
-    <p>{{ error }}</p>
+      <p
+        v-if="landingPage.brief && landingPage.brief.length >= 0"
+        class="py-10 w-1/2 mx-auto text-2xl text-brand-green-800 text-center ">{{ landingPage.brief }}</p>
 
-    <p>{{ slices }}</p>
+      <!-- Content Blocks -->
+      <content-block :blocks="landingPage.contentBlocks" />
 
-    <p>{{ documentId }}</p>-->
+    </div>
   </div>
 </template>
 
@@ -17,16 +29,20 @@
 import { reactive, toRefs, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { getLandingPageDataByUid } from '../services/prismic/api';
+import ContentBlock from '../components/ContentBlock.vue';
 
 export default {
+  components : {
+    ContentBlock
+  },
   setup() {
 
-    const { loading, error, uid } = usePrismicLandingPageContent()
+    const { loading, error, landingPage } = usePrismicLandingPageContent()
 
     return {
       loading,
       error,
-      uid,
+      landingPage,
     };
 
   },
@@ -40,6 +56,7 @@ function usePrismicLandingPageContent() {
     uid: null,
     loading: true,
     error: null,
+    landingPage: null,
   });
 
   // Get the current page parameter from the router
@@ -50,16 +67,13 @@ function usePrismicLandingPageContent() {
   getLandingPageDataByUid(
     state.uid,
       (data) => {
-        console.log('hello');
-        console.log('Response Data from landing-page data source', data);
-
         state.found = data.found;
         state.error = data.error;
-
+        state.landingPage = data.landingPage;
         state.loading = false;
       },
       (err) => {
-         console.log(err);
+         console.error(err);
         // TO DO: Add error processing
         state.error = err.error;
       });

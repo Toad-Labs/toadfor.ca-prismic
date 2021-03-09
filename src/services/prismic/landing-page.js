@@ -94,9 +94,8 @@ function getLandingPageDataByUid(uid, successCallback, errorCallback) {
         const landingPage = new LandingPage({
           id : response.results[0].id,
           uid : response.results[0].uid,
-          date : response.results[0].first_publication_date,
-          coverImageSrc : response.results[0].data.main_image?.url,
-          coverImageAlt : response.results[0].data.main_image?.alt,
+          title : PrismicDOM.RichText.asText(response.results[0].data.title),
+          brief : PrismicDOM.RichText.asText(response.results[0].data.brief),
           contentBlocks,
         })
 
