@@ -15,11 +15,11 @@
 
       <div class="container w-2/3">
 
-      <h1 class="mt-20 text-6xl text-brand-green-900 font-semibold text-center">{{ landingPage.title }}</h1>
+      <h1 class="mt-20 text-6xl text-brand-green-900 font-semibold">{{ landingPage.title }}</h1>
 
       <p
         v-if="landingPage.brief && landingPage.brief.length >= 0"
-        class="py-10 w-1/2 mx-auto text-2xl text-brand-green-800 text-center ">{{ landingPage.brief }}</p>
+        class="mt-5 text-3xl font-medium text-brand-green-800 ">{{ landingPage.brief }}</p>
 
       </div>
 
