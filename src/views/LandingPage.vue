@@ -11,33 +11,37 @@
       <p class=" text-brand-green-900 text-lg">Loading...</p>
     </div>
     <!-- Loaded state -->
-    <div v-else-if="loading === false">
+    <div
+      v-else-if="loading === false"
+      class="">
 
-      <div class="container w-2/3">
+      <!-- Page Title Block -->
+      <!-- DEBUG: md:bg-red-500 lg:bg-none md:w-4/5 lg:w-1/2 -->
+      <div class="container xl:w-1/2 mt-28 mb-24">
 
-      <h1 class="mt-20 text-6xl text-brand-green-900 font-semibold">{{ landingPage.title }}</h1>
+        <h1 class="text-7xl text-brand-green-900 font-semibold">{{ landingPage.title }}</h1>
 
-      <p
-        v-if="landingPage.brief && landingPage.brief.length >= 0"
-        class="mt-5 text-3xl font-medium text-brand-green-800 ">{{ landingPage.brief }}</p>
+        <p
+          v-if="landingPage.brief && landingPage.brief.length >= 0"
+          class="md:w-2/3 mt-10 text-3xl font-medium text-brand-green-700">{{ landingPage.brief }}</p>
 
       </div>
 
       <!-- Cover Image -->
       <div
         v-if="landingPage.coverImage.src !== null"
-        class="container xl:w-4/5">
+        class="container xl:w-3/5">
         <img
-            class="shadow-xl my-10 object-cover h-96 w-full"
+            class="shadow-2xl mb-20 object-cover h-96 w-full rounded-md"
             :src="landingPage.coverImage.src"
             :alt="landingPage.coverImage.alt" />
       </div>
 
-      <div class="container w-2/3">
-      <!-- Content Blocks -->
-      <content-block :blocks="landingPage.contentBlocks" />
-
+      <div>
+        <!-- Content Blocks -->
+        <content-block :blocks="landingPage.contentBlocks" />
       </div>
+
 
   </div>
 </template>
