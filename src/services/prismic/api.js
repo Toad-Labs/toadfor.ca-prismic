@@ -1,5 +1,6 @@
 import { getBlogPostDataById } from './blog-post';
 import { getBlogTeaserData, getBlogTeaserDataByIds } from './blog-teaser';
+import { getBlogLandingPageData } from './blog-landing';
 import { getHomeContentData } from './home-content';
 import { getLandingPageDataByUid } from './landing-page';
 
@@ -10,6 +11,7 @@ const apiEndpoint = `${baseDomain}/api/${apiVersion}`;
 
 export {
   apiEndpoint,
+  getBlogLandingPageData,
   getBlogPostDataById,
   getBlogTeaserData,
   getBlogTeaserDataByIds,

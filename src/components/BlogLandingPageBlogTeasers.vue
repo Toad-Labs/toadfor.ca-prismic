@@ -1,33 +1,43 @@
 <template>
-  <div>
+  <div class="container xl:w-1/2">
 
       <!-- TODO: this should be a UL -->
+      <h2 class="sr-only">Blog Posts</h2>
 
-      <div
-        v-for="blogTeaser in blogTeasers"
-        :key="blogTeaser.uid">
+      <ul>
 
-        <router-link
-          :to="`/blog/` + blogTeaser.uid">
-          <div
-            class="mb-10 p-5 rounded-2xl border border-brand-green-200 bg-brand-green-50
-                  hover:bg-brand-green-100 transition-all ease-in duration-100">
-            <p
-              class="text-xl">
-              {{ blogTeaser.title }}
-            </p>
-            <p
-              class="text-sm text-brand-green-800">
-              <span
-                class="created-at">
-                {{ Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(blogTeaser.date)) }}
-              </span>
-            </p>
-          </div>
-        </router-link>
+        <li
+          v-for="blogTeaser in blogTeasers"
+          :key="blogTeaser.uid"
+          class="my-10">
 
-        <!--<p class="blog-post-meta"><span class="created-at">{{ Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(post.first_publication_date)) }}</span></p>-->
-      </div>
+          <router-link
+            :to="`/blog/` + blogTeaser.uid">
+            <div class=" bg-gray-50  pl-5 py-8 rounded-2xl
+              hover:bg-brand-green-100 transition-all ease-in duration-200">
+
+              <!-- Title -->
+              <h3
+                class="text-xl font-semibold text-brand-green-900">
+                {{ blogTeaser.title }}
+              </h3>
+
+              <!-- Date -->
+              <p
+                class="text-lg text-brand-green-800">
+                <span
+                  class="created-at">
+                  {{ Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: '2-digit' }).format(new Date(blogTeaser.date)) }}
+                </span>
+              </p>
+
+            </div>
+
+          </router-link>
+
+        </li>
+
+      </ul>
 
   </div>
 </template>
