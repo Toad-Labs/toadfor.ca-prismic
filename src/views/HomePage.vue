@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
 
     <!-- Check if there was an error loading the home page data -->
     <div v-if="error">
