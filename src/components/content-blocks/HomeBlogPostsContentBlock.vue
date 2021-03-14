@@ -10,42 +10,49 @@
     </div>
     <div v-else-if="!loading">
 
-      <div class="bg-brand-green-50">
-        <div class="w-full mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:pt-24 lg:px-8">
-          <h2 class="text-4xl font-extrabold text-brand-green-900 tracking-tight">
-            {{ block.title }}
-          </h2>
-          <p class="mt-4 max-w-3xl text-xl text-brand-green-800">
-            {{ block.text }}
-          </p>
+      <div class="bg-white my-24">
 
-          <ul class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
-            <li
-              v-for="blogTeaser in blogTeasers"
-              :key="blogTeaser.id"
-              class="">
-               <router-link
-                :to="`/blog/` + blogTeaser.uid">
-                <div
-                  class="mb-10 p-5 rounded-2xl border border-brand-green-200 bg-brand-green-50
-                        hover:bg-brand-green-100 transition-all ease-in duration-100">
-                  <p
-                    class="text-xl">
-                    {{ blogTeaser.title }}
-                  </p>
-                  <p
-                    class="text-sm text-brand-green-800">
-                    <span
-                      class="created-at">
-                      {{ Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(blogTeaser.date)) }}
-                    </span>
-                  </p>
-                </div>
-              </router-link>
-            </li>
-          </ul>
+        <div class="container">
+
+          <div class="w-full mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:pt-24 lg:px-8">
+
+            <h2 class="text-6xl text-brand-green-900 font-semibold text-center">
+              {{ block.title }}
+            </h2>
+            <p class="mt-4 text-3xl text-center font-medium text-brand-green-700">
+              {{ block.text }}
+            </p>
+
+            <ul class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+              <li
+                v-for="blogTeaser in blogTeasers"
+                :key="blogTeaser.id"
+                class="">
+                <router-link
+                  :to="`/blog/` + blogTeaser.uid">
+                  <div
+                    class="mb-10 p-8 rounded-xl  bg-gray-50
+                          hover:bg-brand-green-100 transition-all ease-in duration-100">
+                    <h3
+                      class="text-xl font-semibold text-brand-green-900">
+                      {{ blogTeaser.title }}
+                    </h3>
+                    <p
+                      class="mt-2 text-lg text-brand-green-800">
+                      <span
+                        class="created-at">
+                        {{ Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(blogTeaser.date)) }}
+                      </span>
+                    </p>
+                  </div>
+                </router-link>
+              </li>
+            </ul>
+
+          </div>
 
         </div>
+
       </div>
 
     </div>
@@ -59,20 +66,6 @@ import { getBlogTeaserDataByIds } from '../../services/prismic/api';
 
 export default {
   props: ['block'],
-  /*
-  props: {
-    heading: {
-      type: String
-    },
-    text: {
-      type: String
-    },
-    articleIds: {
-      type: Object,
-      required: true,
-    }
-  },
-  */
   setup(props) {
 
     //const { blogs, error, load } = useBlogSummariesContent();
