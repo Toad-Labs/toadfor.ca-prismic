@@ -13,7 +13,7 @@
 
           <router-link
             :to="`/blog/` + blogTeaser.uid">
-            <div class=" bg-gray-50  pl-5 py-8 rounded-2xl
+            <div class=" bg-gray-50 p-8 rounded-2xl
               hover:bg-brand-green-100 transition-all ease-in duration-200">
 
               <!-- Title -->
@@ -24,7 +24,7 @@
 
               <!-- Date -->
               <p
-                class="text-lg text-brand-green-800">
+                class="mt-2 text-lg text-brand-green-800">
                 <span
                   class="created-at">
                   {{ Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: '2-digit' }).format(new Date(blogTeaser.date)) }}

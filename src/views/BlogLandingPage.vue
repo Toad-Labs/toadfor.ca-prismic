@@ -19,7 +19,7 @@
 
       <!-- Page Title Block -->
       <!-- DEBUG: md:bg-red-500 lg:bg-none md:w-4/5 lg:w-1/2 -->
-      <div class="container xl:w-1/2 mt-28 mb-24">
+      <div class="container xl:w-1/2 mt-28 pb-10 ">
 
         <h1 class="text-7xl text-brand-green-900 font-semibold">{{ blogLandingPage.title }}</h1>
 
